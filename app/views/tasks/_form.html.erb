@@ -1,28 +1,41 @@
-<%= form_for(task) do |f| %>
+<div class="row">
+ <div class="col-xs-12">
+ <div class="col-sm-offset-2 col-sm-8">
+ <div class="col-md-offset-2 col-md-8">
+ <div class="col-lg-offset-3 col-sm-6">
 
- <% if task.errors.any? %>
+  <%= form_for(task) do |f| %>
 
-   <div id="error_explanation">
-     <ul>
-       <% task.errors.full_messages.each do |task| %>
+   <% if task.errors.any? %>
+
+    <div class="alert alert-warning">
+      <ul>
+        <% task.errors.full_messages.each do |task| %>
+        
+        <li>
+          <%= task %>
+        </li>
        
-       <li>
-         <%= task %>
-       </li>
-       
-       <% end %>
-     </ul>
-   </div>
- <% end %>
-  
- <%= f.label :content, 'タスク' %>
- 
- <%= f.text_field :content %>
+        <% end %>
+      </ul>
+    </div>
+   <% end %>
 
- <%= f.label :status, '状況' %>
+  <div class="form-group">
+   <%= f.label :content, 'タスク' %>
+   <%= f.text_field :content, class: 'form-control' %>
+  </div>
 
- <%= f.text_field :status %>
+  <div class="form-group">
+    <%= f.label :status, '状況' %>
+    <%= f.text_field :status, class: 'form-control' %>
+  </div>
 
- <%= f.submit '追加' %>
+  <%= f.submit '追加', class: 'btn btn-primary' %>
 
-<% end %>
+  <% end %>
+ </div>
+ </div>
+ </div>
+ </div>
+</div>
